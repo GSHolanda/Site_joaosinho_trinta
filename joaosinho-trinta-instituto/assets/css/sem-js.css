@@ -1,0 +1,23 @@
+/* Sem JavaScript: a página inteira aparece, com o hero parado e composto. */
+.reveal{opacity:1;transform:none}
+.orn path{stroke-dashoffset:0}
+.row .yr::after{opacity:1}
+.h-pele{opacity:1;transform:none}
+.raw .stamp{transform:rotate(-9deg) scale(1);opacity:.92}
+.verb{opacity:1;transform:none}
+.hold,.alchemy{display:none}
+.marquee-track::before{content:"Compromisso com a cultura ◆ com o desenvolvimento ◆ com a sociedade";font:800 clamp(1.6rem,3.2vw,3rem)/1 var(--f-display);color:#fff;white-space:nowrap;padding:0 .4em}
+.hero{height:auto}
+.stage{position:relative;height:auto;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.band,.cue,.dust{display:none}
+.archbox{transform:none}
+.seam-glow{opacity:0}
+.static-copy{display:flex;flex-direction:column;position:relative;z-index:3;flex:1;padding:calc(var(--nav-h) + 7vh) var(--gutter) 40px}
+.static-copy .kicker{color:var(--gold);margin-bottom:16px}
+.h-hero-static{max-width:11ch}
+.h-quote-static{margin-top:18px;font:300 clamp(1.9rem,6.5vw,3.4rem)/1 var(--f-display);font-stretch:62.5%;max-width:14ch}
+.static-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:30vh}
+.static-cta .btn{text-shadow:none}
+
+.mark > svg path{stroke-dashoffset:0}
+.logo-lines path,.logo-lines line{stroke-dashoffset:0}

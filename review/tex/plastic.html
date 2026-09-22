@@ -1,0 +1,21 @@
+<!doctype html><meta charset=utf-8><style>html,body{margin:0;background:#060608}svg{display:block}</style>
+<svg width="2400" height="1500" xmlns="http://www.w3.org/2000/svg">
+ <filter id="p" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+  <feTurbulence type="fractalNoise" baseFrequency="0.0011 0.0019" numOctaves="2" seed="4" result="big"/>
+  <feTurbulence type="turbulence" baseFrequency="0.0042 0.0085" numOctaves="2" seed="19" result="crease"/>
+  <feTurbulence type="turbulence" baseFrequency="0.013 0.02" numOctaves="1" seed="3" result="fine"/>
+  <feComposite in="big" in2="crease" operator="arithmetic" k1="0" k2="1" k3=".55" k4="0" result="m1"/>
+  <feComposite in="m1" in2="fine" operator="arithmetic" k1="0" k2="1" k3=".12" k4="0" result="m2"/>
+  <feColorMatrix in="m2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 0 0 0 0" result="h"/>
+  <feSpecularLighting in="h" surfaceScale="26" specularConstant="1.05" specularExponent="38" lighting-color="#e4e8ef" result="s">
+   <feDistantLight azimuth="235" elevation="42"/>
+  </feSpecularLighting>
+  <feDiffuseLighting in="h" surfaceScale="26" diffuseConstant=".7" lighting-color="#2a2c33" result="d">
+   <feDistantLight azimuth="235" elevation="42"/>
+  </feDiffuseLighting>
+  <feComposite in="s" in2="d" operator="arithmetic" k1="0" k2=".8" k3="0.6" k4="0" result="lit"/>
+  <feComponentTransfer in="lit"><feFuncR type="gamma" exponent="2.2" amplitude="1"/><feFuncG type="gamma" exponent="2.2" amplitude="1"/><feFuncB type="gamma" exponent="2.1" amplitude="1.04"/></feComponentTransfer>
+ </filter>
+ <rect width="100%" height="100%" fill="#050507"/>
+ <rect width="100%" height="100%" filter="url(#p)"/>
+</svg>

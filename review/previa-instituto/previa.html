@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prévia · versão Instituto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Roboto+Slab:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --canvas:#fbf9f6; --panel:#f3eee8; --ink:#1d1d1b; --ink-2:#5b5652;
+  --purple:#65225e; --purple-2:#7b2c7f; --magenta:#e4054c; --orange:#f08700;
+  --yellow:#ffd200; --green:#4da82f; --arch:#c9c9c9; --line:rgba(29,29,27,.14);
+  --brand-grad:linear-gradient(180deg,#f08700 0%,#e4054c 58%,#c3094f 100%);
+  --f-slab:"Roboto Slab", Georgia, serif; --f-body:"Archivo", Arial, sans-serif; --f-mono:"Courier Prime", monospace;
+  --gutter:clamp(16px,4.5vw,72px);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--canvas);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+.mono{font-family:var(--f-mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.frame{display:none;position:relative;width:100vw;height:100vh;overflow:hidden}
+body[data-f="1"] .f1, body[data-f="2"] .f2, body[data-f="3"] .f3, body[data-f="4"] .f4{display:block}
+/* nav */
+.nav{position:absolute;inset:0 0 auto;height:84px;display:flex;align-items:center;gap:30px;padding:0 var(--gutter);z-index:10;background:rgba(251,249,246,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav img{height:58px;width:auto;margin-right:auto}
+.nav a{font:500 15px/1 var(--f-slab);color:var(--ink);text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;font:700 15px/1 var(--f-slab);border-radius:999px;text-decoration:none;letter-spacing:.01em}
+.btn-mag{background:var(--magenta);color:#fff}
+.btn-out{border:2px solid var(--purple);color:var(--purple)}
+.nav .btn{min-height:42px;padding:0 20px;font-size:14px}
+/* marcador desenhado à mão (a assinatura do site deles) */
+.mark{position:relative;display:inline-block;white-space:nowrap}
+.mark svg{position:absolute;left:-9%;top:-16%;width:118%;height:132%;overflow:visible;pointer-events:none}
+.mark path{fill:none;stroke:var(--magenta);stroke-width:5;stroke-linecap:round}
+.grad{background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* ===== HERO: o logo vira cenário ===== */
+.logo-stage{position:absolute;inset:0}
+.logo-stage svg.curves{position:absolute;inset:0;width:100%;height:100%}
+.arch{position:absolute;background:#0a0908 url(../../joaosinho-trinta/assets/img/hero.jpg) 62% 20%/cover;clip-path:url(#archClip)}
+.f1 .arch{left:54%;top:15%;width:46%;height:85%}
+.f2 .arch{left:36%;top:0;width:64%;height:100%}
+.hero-copy{position:absolute;z-index:3;left:var(--gutter)}
+.f1 .hero-copy{top:190px;width:52vw}
+.kicker{color:var(--purple);margin-bottom:22px}
+.h-hero{font:800 clamp(3.4rem,7.2vw,8.4rem)/.94 var(--f-slab);letter-spacing:-.015em;margin:0;text-transform:uppercase;color:var(--ink)}
+.hint{margin-top:34px;color:var(--ink-2)}
+.f2 .hero-copy{top:170px;width:34vw}
+.logo-settle{width:190px;margin-bottom:26px}
+.h-settle{font:700 clamp(2.2rem,3.9vw,4.4rem)/1.02 var(--f-slab);margin:0;color:var(--purple);letter-spacing:-.01em}
+.sub{margin-top:20px;font-size:19px;color:var(--ink-2);max-width:32ch}
+.ctas{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.f2 .arch::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(0,0,0,0) 30%)}
+
+/* ===== PELÉ ===== */
+.f3{background:var(--canvas)}
+.f3 .wrap{position:absolute;inset:84px var(--gutter) 0}
+.act-k{color:var(--purple);text-align:center;margin-top:70px}
+.rule{width:230px;height:2px;background:var(--ink);margin:22px auto 26px}
+.h-pele{font:800 clamp(4rem,10.6vw,11.6rem)/.9 var(--f-slab);text-transform:uppercase;text-align:center;margin:0;color:var(--purple);letter-spacing:-.02em}
+.h-pele .mark path{stroke-width:7}
+.pele-sub{text-align:center;font-size:21px;color:var(--ink-2);margin:26px 0 40px}
+.ledger{border-top:2px solid var(--ink);margin:0;padding:0;list-style:none}
+.row{display:grid;grid-template-columns:2.2fr 1.1fr 5fr;gap:40px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.yr{font:800 clamp(3.4rem,6.6vw,7rem)/1 var(--f-slab);letter-spacing:-.02em}
+.sch{color:var(--purple);font-weight:700}
+.enr{font:500 clamp(1.3rem,2vw,2rem)/1.15 var(--f-slab);color:var(--ink)}
+
+/* ===== QUEM SOMOS ===== */
+.f4 .wrap{position:absolute;inset:84px var(--gutter) 0}
+.qs-top{display:grid;grid-template-columns:7fr 5fr;gap:60px;align-items:end;margin-top:64px}
+.h-state{font:800 clamp(2.6rem,4.8vw,5.4rem)/1 var(--f-slab);margin:0;letter-spacing:-.015em}
+.h-state .grad{font-weight:800}
+.lede{color:var(--ink-2);font-size:18px;margin:0}
+.band-grad{position:absolute;left:0;right:0;top:445px;height:120px;background:linear-gradient(95deg,var(--magenta),var(--purple) 70%);display:flex;align-items:center;overflow:hidden}
+.band-grad span{font:700 clamp(2rem,3.6vw,3.4rem)/1 var(--f-slab);color:#fff;white-space:nowrap;padding-left:var(--gutter)}
+.band-grad span i{font-style:normal;color:var(--yellow);padding:0 .4em}
+.band-grad::before,.band-grad::after{content:"";position:absolute;left:0;right:0;height:26px;background:var(--canvas)}
+.band-grad::before{top:-13px;border-radius:0 0 50% 50%/0 0 100% 100%;transform:scaleX(1.4)}
+.band-grad::after{bottom:-13px;border-radius:50% 50% 0 0/100% 100% 0 0;transform:scaleX(1.4)}
+.tiles{position:absolute;left:var(--gutter);right:var(--gutter);top:610px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.tile{background:var(--purple);color:#fff;padding:26px 22px 28px;min-height:190px}
+.tile h3{font:800 20px/1.15 var(--f-slab);margin:0 0 10px;text-transform:uppercase}
+.tile p{margin:0;font-size:14.5px;line-height:1.5;color:#f3e6f1}
+.tile:nth-child(2){background:#732a6c}.tile:nth-child(3){background:#80306f}.tile:nth-child(4){background:#8c3572}.tile:nth-child(5){background:#983a74}
+
+/* celular */
+@media (max-width:600px){
+  .nav{height:70px}.nav img{height:46px}.nav a:not(.btn){display:none}
+  .f1 .hero-copy{top:110px;width:auto;right:var(--gutter)}
+  .h-hero{font-size:15vw}
+  .f1 .arch{left:0;top:55%;width:100%;height:45%}
+  .hint{display:none}
+}
+</style>
+</head>
+<body data-f="1">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="archClip" clipPathUnits="objectBoundingBox">
+      <path d="M0,0 C0.42,0.02 0.78,0.36 1,1 L0,1 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- ===== QUADRO 1: começo do hero ===== -->
+<section class="frame f1">
+  <header class="nav"><img src="../../joaosinho-trinta/assets/img/logo-cor.png" alt="Instituto Joãosinho Trinta"><a href="#">O artista</a><a href="#">Quem somos</a><a href="#">Projetos</a><a href="#">Coluna IJT</a><a class="btn btn-mag" href="#">Junte-se</a></header>
+  <div class="logo-stage">
+    <div class="arch"></div>
+    <svg class="curves" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M778 134 C 760 420, 520 610, 70 742" fill="none" stroke="#ffd200" stroke-width="16" stroke-linecap="round"/>
+      <path d="M100 780 C 420 790, 700 800, 778 900" fill="none" stroke="#4da82f" stroke-width="12" stroke-linecap="round"/>
+      <line x1="778" y1="126" x2="778" y2="900" stroke="#1d1d1b" stroke-width="3"/>
+      <line x1="120" y1="760" x2="1100" y2="760" stroke="#1d1d1b" stroke-width="2"/>
+    </svg>
+  </div>
+  <div class="hero-copy">
+    <p class="kicker mono">Joãosinho Trinta · 1933 a 2011</p>
+    <h1 class="h-hero">O povo gosta de <span class="mark"><span class="grad">luxo.</span><svg viewBox="0 0 200 100" preserveAspectRatio="none"><path d="M18 58 C 10 20, 90 6, 150 14 C 205 22, 200 80, 120 88 C 60 94, 8 78, 22 44 C 30 26, 70 16, 110 18"/></svg></span></h1>
+    <p class="hint mono">Role para abrir o arco</p>
+  </div>
+</section>
+
+<!-- ===== QUADRO 2: cena final do hero ===== -->
+<section class="frame f2">
+  <header class="nav"><img src="../../joaosinho-trinta/assets/img/logo-cor.png" alt="Instituto Joãosinho Trinta"><a href="#">O artista</a><a href="#">Quem somos</a><a href="#">Projetos</a><a href="#">Coluna IJT</a><a class="btn btn-mag" href="#">Junte-se</a></header>
+  <div class="logo-stage">
+    <div class="arch"></div>
+    <svg class="curves" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M520 84 C 505 380, 330 640, -20 800" fill="none" stroke="#ffd200" stroke-width="16" stroke-linecap="round"/>
+      <path d="M-20 836 C 260 846, 460 852, 520 900" fill="none" stroke="#4da82f" stroke-width="12" stroke-linecap="round"/>
+      <line x1="520" y1="84" x2="520" y2="900" stroke="#1d1d1b" stroke-width="3"/>
+    </svg>
+  </div>
+  <div class="hero-copy">
+    <img class="logo-settle" src="../../joaosinho-trinta/assets/img/logo-cor.png" alt="">
+    <p class="h-settle">Onde houver cultura, haverá desenvolvimento humano.</p>
+    <p class="sub">Desde 2008, a gente leva o ofício dele para quem faz cultura no Brasil.</p>
+    <div class="ctas"><a class="btn btn-mag" href="#">Junte-se a nós</a><a class="btn btn-out" href="#">Conheça a história</a></div>
+  </div>
+</section>
+
+<!-- ===== QUADRO 3: o Pelé do Carnaval ===== -->
+<section class="frame f3">
+  <header class="nav"><img src="../../joaosinho-trinta/assets/img/logo-cor.png" alt="Instituto Joãosinho Trinta"><a href="#">O artista</a><a href="#">Quem somos</a><a href="#">Projetos</a><a href="#">Coluna IJT</a><a class="btn btn-mag" href="#">Junte-se</a></header>
+  <div class="wrap">
+    <p class="act-k mono">Ato II · Os títulos</p>
+    <div class="rule"></div>
+    <h2 class="h-pele">O <span class="mark">Pelé<svg viewBox="0 0 200 100" preserveAspectRatio="none"><path d="M16 60 C 8 22, 92 4, 152 12 C 206 20, 202 82, 118 90 C 58 96, 6 80, 20 46 C 28 28, 72 16, 112 18"/></svg></span><br>do Carnaval.</h2>
+    <p class="pele-sub">Era assim que o chamavam. Foram oito títulos como carnavalesco.</p>
+    <ol class="ledger">
+      <li class="row"><span class="yr grad">1974</span><span class="sch mono">Salgueiro</span><span class="enr">O Rei de França na Ilha da Assombração</span></li>
+      <li class="row"><span class="yr grad">1975</span><span class="sch mono">Salgueiro</span><span class="enr">O Segredo das Minas do Rei Salomão</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== QUADRO 4: Quem somos ===== -->
+<section class="frame f4">
+  <header class="nav"><img src="../../joaosinho-trinta/assets/img/logo-cor.png" alt="Instituto Joãosinho Trinta"><a href="#">O artista</a><a href="#">Quem somos</a><a href="#">Projetos</a><a href="#">Coluna IJT</a><a class="btn btn-mag" href="#">Junte-se</a></header>
+  <div class="wrap">
+    <p class="mono" style="color:var(--purple);margin-top:56px">Quem somos</p>
+    <div class="qs-top" style="margin-top:18px">
+      <h2 class="h-state">O apoio à cultura é a <span class="grad">força</span> que o nosso país precisa.</h2>
+      <p class="lede">O Instituto Joãosinho Trinta nasceu em 21 de outubro de 2008, criado pelo próprio Joãosinho ao lado de José Ricardo Marques. Há mais de quinze anos leva boas práticas ao setor cultural.</p>
+    </div>
+  </div>
+  <div class="band-grad"><span>Compromisso com a cultura<i>◆</i>com o desenvolvimento<i>◆</i>com a sociedade</span></div>
+  <div class="tiles">
+    <div class="tile"><h3>Transparência</h3><p>Recursos bem geridos e resultados públicos, para que as lições sirvam a toda a sociedade.</p></div>
+    <div class="tile"><h3>Inovação e inclusão</h3><p>Soluções simples para os desafios da cultura, explicadas de um jeito acessível.</p></div>
+    <div class="tile"><h3>Ética e justiça</h3><p>Benefícios e responsabilidades da cultura divididos de forma justa.</p></div>
+    <div class="tile"><h3>Sustentabilidade</h3><p>Boas práticas que mantêm a cultura viável, na economia e na vida das pessoas.</p></div>
+    <div class="tile"><h3>Dinamismo</h3><p>Inquietação diante dos desafios, com novas tecnologias e pesquisa aplicada.</p></div>
+  </div>
+</section>
+
+<script>
+const f = new URLSearchParams(location.search).get('f');
+if (f) document.body.dataset.f = f;
+</script>
+</body>
+</html>
