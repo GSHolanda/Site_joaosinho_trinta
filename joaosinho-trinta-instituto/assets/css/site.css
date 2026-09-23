@@ -931,8 +931,9 @@ main:has(> .ultimos:last-child) + .foot .tear{background-image:url("data:image/s
 .encontro-text .act-kicker{margin-top:0;color:#fff}
 .h-pele .mark{padding:.04em .14em .02em}
 .h-pele .mark > svg{left:-9%;top:-12%;width:118%;height:124%}
-.h-statement .mark{padding:.02em .22em .1em;margin-inline:.06em}
-.h-statement .mark > svg{left:-12%;top:-10%;width:124%;height:122%}
+/* a linha da força ganha respiro em cima, para o círculo não encostar nas pernas das letras de cima */
+.h-statement .mark{padding:.02em .22em .1em;margin:.26em .06em 0}
+.h-statement .mark > svg{left:-12%;top:-4%;width:124%;height:114%}
 
 /* ================= LEVEZA: o mesmo site, com menos trabalho para a máquina ================= */
 /* confete como um ladrilho SVG pronto, no lugar de oito degradês recalculados */
@@ -966,5 +967,5 @@ main:has(#junte-se) .act{content-visibility:visible}
 
 /* ---------- ajustes de conteúdo ---------- */
 /* presépio inteiro, sem corte */
-.presepio{max-width:900px}
-.presepio img{aspect-ratio:632/330}
+.presepio{max-width:1000px}
+.presepio img{aspect-ratio:16/9;object-fit:cover;object-position:50% 30%}
