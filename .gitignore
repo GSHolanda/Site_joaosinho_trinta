@@ -1,2 +1,8 @@
 # Dados da hospedagem com a senha do FTP: ficam so no computador de quem publica.
 hospedagem.env
+
+# Material de trabalho que fica so no computador, fora do GitHub:
+# a skill usada para construir o site e as pastas de rascunho.
+site-de-10k/
+sitede10k-skill.zip
+review/
