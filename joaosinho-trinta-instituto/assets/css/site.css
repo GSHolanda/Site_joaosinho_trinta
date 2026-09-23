@@ -59,8 +59,12 @@ main:focus{outline:none}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
 
 /* ---------- o marcador desenhado à mão (a assinatura) ---------- */
-.mark{position:relative;display:inline-block;white-space:nowrap}
-.mark > svg{position:absolute;left:-10%;top:-26%;width:120%;height:154%;overflow:visible;pointer-events:none}
+.mark{position:relative;display:inline-block;white-space:nowrap;isolation:isolate}
+.mark > svg{position:absolute;z-index:-1;left:-10%;top:-26%;width:120%;height:154%;overflow:visible;pointer-events:none}
+/* no título da abertura o círculo abraça a palavra por fora, sem cruzar as letras */
+.h-hero .mark{padding:.02em .2em .12em;margin:.12em 0 0 .42em}
+.h-hero .mark > svg{left:-12%;top:-8%;width:124%;height:118%}
+.b1 .h-quote{margin-top:24px}
 .mark > svg path{fill:none;stroke:var(--magenta);stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--ease-io) .35s}
 .in .mark > svg path,.mark.in > svg path{stroke-dashoffset:0}
 .grad{background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
