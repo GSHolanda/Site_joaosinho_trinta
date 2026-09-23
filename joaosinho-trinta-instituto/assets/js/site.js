@@ -11,6 +11,20 @@
   const RM = matchMedia('(prefers-reduced-motion: reduce)');
   const NARROW = matchMedia('(max-width: 720px)');
 
+  /* ---------- 0. modo leve: máquinas modestas ganham menos partículas, mesmo desenho ---------- */
+  const nav0 = navigator;
+  let LITE = !!((nav0.connection && nav0.connection.saveData) ||
+    (nav0.deviceMemory && nav0.deviceMemory <= 4) ||
+    (nav0.hardwareConcurrency && nav0.hardwareConcurrency <= 4));
+  const liteHooks = [];
+  function goLite() {
+    if (LITE) return;
+    LITE = true;
+    document.documentElement.classList.add('lite');
+    liteHooks.forEach(f => f());
+  }
+  if (LITE) document.documentElement.classList.add('lite');
+
   /* ---------- 1. divisão de texto (uma vez, com semente) ---------- */
   function splitText(el) {
     const text = el.textContent.trim().replace(/\s+/g, ' ');
@@ -104,7 +118,7 @@
   })();
   let dW = 0, dH = 0, dDpr = 1;
   function sizeDust() {
-    dDpr = Math.min(1.5, devicePixelRatio || 1);
+    dDpr = LITE ? 1 : Math.min(1.5, devicePixelRatio || 1);
     dW = dust.clientWidth; dH = dust.clientHeight;
     dust.width = Math.round(dW * dDpr); dust.height = Math.round(dH * dDpr);
     cache.dust = -1;
@@ -115,7 +129,9 @@
     dctx.setTransform(dDpr, 0, 0, dDpr, 0, 0);
     dctx.clearRect(0, 0, dW, dH);
     if (p < .05 || p > .95) return;
-    for (const m of motes) {
+    const step = LITE ? 3 : 1;
+    for (let i = 0; i < DUST_N; i += step) {
+      const m = motes[i];
       const age = (p - m.b) / m.life;
       if (age <= 0 || age >= 1) continue;
       const tb = smoothstep(m.b, 0.06, 0.72);
@@ -170,8 +186,14 @@
     }
   }
 
+  // se a máquina não segura o ritmo durante a abertura, entra no modo leve sozinha
+  let slowN = 0, slowSum = 0;
   function tick(now) {
     const dt = Math.min(100, now - (lastTick || now));
+    if (lastTick && !LITE && slowN < 60) {
+      slowN++; slowSum += dt;
+      if (slowN === 60 && slowSum / 60 > 30) goLite();
+    }
     lastTick = now;
     const kk = 0.14;
     shown += (target - shown) * (1 - Math.pow(1 - kk, dt / 16.667));
@@ -274,7 +296,7 @@
     queueGallery();
   }, { rootMargin: '20% 0px' });
   gItems.forEach(i => galleryIO.observe(i.fig));
-  function galleryActive() { return !RM.matches && !NARROW.matches; }
+  function galleryActive() { return !RM.matches && !NARROW.matches && !LITE; }
   function runGallery() {
     gRaf = null;
     if (!galleryActive()) return;
@@ -291,6 +313,7 @@
   addEventListener('scroll', queueGallery, { passive: true });
   function clearGallery() { gItems.forEach(it => { it.el.style.removeProperty('--py'); it.py = null; }); }
   NARROW.addEventListener('change', () => { if (!galleryActive()) clearGallery(); else queueGallery(); });
+  liteHooks.push(clearGallery, () => { if (heroInit) { sizeDust(); if (scrubOn) renderHero(shown); } });
 
   /* ---------- 7. letreiro de valores ---------- */
   const track = $('.marquee-track');
@@ -367,7 +390,7 @@
   }
 
   function buildAlchemy() {
-    A.dpr = Math.min(2, devicePixelRatio || 1);
+    A.dpr = LITE ? 1 : Math.min(2, devicePixelRatio || 1);
     A.W = cvs.clientWidth; A.H = cvs.clientHeight;
     if (!A.W || !A.H) return;
     cvs.width = Math.round(A.W * A.dpr); cvs.height = Math.round(A.H * A.dpr);
