@@ -6,7 +6,7 @@
 param([string]$Pasta = "joaosinho-trinta-instituto")
 
 $envFile = Join-Path $PSScriptRoot "hospedagem.env"
-if (-not (Test-Path $envFile)) { Write-Host "Falta o arquivo hospedagem.env nesta pasta."; exit 1 }
+if (-not (Test-Path $envFile)) { Write-Host "Falta o arquivo hospedagem.env nesta pasta. Copie hospedagem.env.exemplo para hospedagem.env e preencha."; exit 1 }
 
 Get-Content $envFile | ForEach-Object {
   if ($_ -match '^\s*[^#].*=') { $k, $v = $_ -split '=', 2; Set-Variable -Name $k.Trim() -Value $v.Trim() }
