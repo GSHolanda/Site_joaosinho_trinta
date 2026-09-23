@@ -1,5 +1,5 @@
-// Servidor local simples, para ver as duas versões do site sem instalar nada.
-// Uso: node serve.js   (depois abra http://127.0.0.1:8080/joaosinho-trinta/index.html)
+// Servidor local simples, para ver o site sem instalar nada.
+// Uso: node serve.js   (depois abra http://127.0.0.1:8080/joaosinho-trinta-instituto/index.html)
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -34,8 +34,7 @@ http.createServer((req, res) => {
       '<li><a href="/joaosinho-trinta-instituto/instituto.html">O Instituto</a></li>' +
       '<li><a href="/joaosinho-trinta-instituto/atuacao.html">Atuação e projetos</a></li>' +
       '<li><a href="/joaosinho-trinta-instituto/equipe.html">Quem faz e o acervo</a></li>' +
-      '</ul><p style="color:#777">Descontinuada: ' +
-      '<a href="/joaosinho-trinta/index.html">versão escura, página única</a></p>'
+      '</ul>'
     );
     return;
   }
@@ -57,6 +56,5 @@ http.createServer((req, res) => {
   });
 }).listen(PORT, '127.0.0.1', () => {
   console.log(`Servidor local em http://127.0.0.1:${PORT}/`);
-  console.log(`  http://127.0.0.1:${PORT}/joaosinho-trinta/index.html`);
   console.log(`  http://127.0.0.1:${PORT}/joaosinho-trinta-instituto/index.html`);
 });

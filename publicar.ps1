@@ -1,6 +1,5 @@
 # Publica o site por FTP na hospedagem (Hostinger). Uso:
 #   .\publicar.ps1                      publica a versao atual, clara (joaosinho-trinta-instituto)
-#   .\publicar.ps1 joaosinho-trinta     publica a versao escura, descontinuada
 # Antes da primeira publicacao, preencha o arquivo hospedagem.env que esta nesta pasta.
 
 param([string]$Pasta = "joaosinho-trinta-instituto")
