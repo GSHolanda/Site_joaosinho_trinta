@@ -931,5 +931,40 @@ main:has(> .ultimos:last-child) + .foot .tear{background-image:url("data:image/s
 .encontro-text .act-kicker{margin-top:0;color:#fff}
 .h-pele .mark{padding:.04em .14em .02em}
 .h-pele .mark > svg{left:-9%;top:-12%;width:118%;height:124%}
-.h-statement .mark{padding:0 .12em;margin-inline:-.04em}
-.h-statement .mark > svg{left:-8%;top:-10%;width:116%;height:122%}
+.h-statement .mark{padding:.02em .22em .1em;margin-inline:.06em}
+.h-statement .mark > svg{left:-12%;top:-10%;width:124%;height:122%}
+
+/* ================= LEVEZA: o mesmo site, com menos trabalho para a máquina ================= */
+/* confete como um ladrilho SVG pronto, no lugar de oito degradês recalculados */
+:root{--confete:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='220' viewBox='0 0 240 220' preserveAspectRatio='none'%3E%3Ccircle cx='28.8' cy='39.6' r='5' fill='rgb(240,135,0)' fill-opacity='0.55'/%3E%3Ccircle cx='79.2' cy='138.6' r='4' fill='rgb(228,5,76)' fill-opacity='0.5'/%3E%3Ccircle cx='136.8' cy='59.4' r='5.5' fill='rgb(255,210,0)' fill-opacity='0.7'/%3E%3Ccircle cx='189.6' cy='156.2' r='4' fill='rgb(123,44,127)' fill-opacity='0.45'/%3E%3Ccircle cx='218.4' cy='72.6' r='5' fill='rgb(77,168,47)' fill-opacity='0.5'/%3E%3Ccircle cx='110.4' cy='193.6' r='3.5' fill='rgb(228,5,76)' fill-opacity='0.4'/%3E%3Ccircle cx='168' cy='17.6' r='3.5' fill='rgb(77,168,47)' fill-opacity='0.4'/%3E%3Ccircle cx='52.8' cy='198' r='4' fill='rgb(255,210,0)' fill-opacity='0.6'/%3E%3C/svg%3E")}
+
+/* o fundo ambiente fica atrás de seções opacas: vira imagem parada, sem animação eterna */
+.ambient-tex,.ambient-grain{animation:none}
+.ambient-grain{inset:0}
+
+/* o menu já é quase opaco: o desfoque por trás custava caro a cada rolagem */
+.nav{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(251,249,246,.97)}
+
+/* uma camada por letra pesava na memória de vídeo; o navegador promove só o que anima */
+.split .c{will-change:auto}
+
+/* seções fora da tela não são desenhadas até chegarem perto */
+.act:not(.hero),.foot{content-visibility:auto;contain-intrinsic-size:auto 900px}
+/* na home os botões pulam direto para o convite: ali tudo fica desenhado para o pulo cair certo */
+main:has(#junte-se) .act{content-visibility:visible}
+
+/* celular recebe as versões menores dos fundos */
+@media (max-width:720px){
+  .ambient-tex{background-image:url(../img/ambiente-800.jpg)}
+  .raw-bg{background-image:linear-gradient(180deg,rgba(20,20,19,.5),rgba(20,20,19,.9)),url(../img/ambiente-800.jpg)}
+  .cta-bg{background-image:linear-gradient(92deg,var(--panel-2) 0%,rgba(239,231,221,.94) 40%,rgba(239,231,221,.2) 100%),url(../img/avenida-65-800.jpg)}
+}
+
+/* modo leve, ligado sozinho em máquinas modestas */
+.lite .ambient{display:none}
+.lite .marquee.anim .marquee-track{animation-duration:90s}
+
+/* ---------- ajustes de conteúdo ---------- */
+/* presépio inteiro, sem corte */
+.presepio{max-width:900px}
+.presepio img{aspect-ratio:632/330}
