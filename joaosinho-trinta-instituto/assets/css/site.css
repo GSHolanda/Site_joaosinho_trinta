@@ -779,3 +779,157 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .duelo-grid{grid-template-columns:1fr}
   .duelo-t{gap:10px}
 }
+
+/* ================= CARNAVAL NA PELE: cor de avenida, não só de detalhe ================= */
+:root{
+  --confete:
+    radial-gradient(circle at 12% 18%, rgba(240,135,0,.55) 0 5px, rgba(0,0,0,0) 5.5px),
+    radial-gradient(circle at 33% 63%, rgba(228,5,76,.5) 0 4px, rgba(0,0,0,0) 4.5px),
+    radial-gradient(circle at 57% 27%, rgba(255,210,0,.7) 0 5.5px, rgba(0,0,0,0) 6px),
+    radial-gradient(circle at 79% 71%, rgba(123,44,127,.45) 0 4px, rgba(0,0,0,0) 4.5px),
+    radial-gradient(circle at 91% 33%, rgba(77,168,47,.5) 0 5px, rgba(0,0,0,0) 5.5px),
+    radial-gradient(circle at 46% 88%, rgba(228,5,76,.4) 0 3.5px, rgba(0,0,0,0) 4px),
+    radial-gradient(circle at 70% 8%, rgba(77,168,47,.4) 0 3.5px, rgba(0,0,0,0) 4px),
+    radial-gradient(circle at 22% 90%, rgba(255,210,0,.6) 0 4px, rgba(0,0,0,0) 4.5px);
+}
+
+/* fita de cinco cores sob o menu */
+.nav::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:4px;background:var(--fita)}
+
+/* a abertura ganha brilho de avenida atrás do arco */
+.stage{background:
+  radial-gradient(circle at 4% 98%,rgba(255,210,0,.34),rgba(255,210,0,0) 36%),
+  radial-gradient(circle at 36% 4%,rgba(228,5,76,.16),rgba(228,5,76,0) 34%),
+  radial-gradient(circle at 60% 72%,rgba(240,135,0,.16),rgba(240,135,0,0) 32%),
+  var(--canvas)}
+.b1 .kicker,.static-copy .kicker{color:var(--magenta);font-weight:700}
+
+/* etiquetas de seção viram faixas de cor */
+.act-kicker{width:fit-content;justify-self:start;padding:7px 14px 6px;border-radius:999px;background:var(--magenta);color:#fff;font-weight:700}
+.raw .act-kicker,.artico .act-kicker,.resumo .act-kicker,.titulos .act-kicker,.criativa .act-kicker{background:var(--yellow);color:var(--ink)}
+.amizade .act-kicker,.ultimos .act-kicker{background:var(--purple);color:#fff}
+
+/* confete em mais seções */
+.amizade,.ultimos,.origem,.equipe,.projetos,.duelo{position:relative;isolation:isolate}
+.amizade::before,.ultimos::before,.origem::before,.equipe::before,.projetos::before,.duelo::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:var(--confete);background-size:240px 220px;opacity:.7}
+.resumo::before,.titulos::before,.segredo::before,.atuacao::before{opacity:.8}
+.amizade::before,.ultimos::before{background-size:200px 180px;opacity:.55}
+
+/* ondas entre seções nas novas cores */
+.tear-yellow{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 46' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H1440 V18 C1150 46 980 2 720 20 C470 38 250 8 0 26 Z' fill='%23ffd200'/%3E%3C/svg%3E")}
+.tear-roxo{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 46' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H1440 V18 C1150 46 980 2 720 20 C470 38 250 8 0 26 Z' fill='%237a1f66'/%3E%3C/svg%3E")}
+.titulos + .duelo > .tear{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 46' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H1440 V18 C1150 46 980 2 720 20 C470 38 250 8 0 26 Z' fill='%236e1d63'/%3E%3C/svg%3E")}
+.criativa + .artico > .tear{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 46' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H1440 V18 C1150 46 980 2 720 20 C470 38 250 8 0 26 Z' fill='%2365225e'/%3E%3C/svg%3E")}
+main:has(> .ultimos:last-child) + .foot .tear{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 46' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H1440 V18 C1150 46 980 2 720 20 C470 38 250 8 0 26 Z' fill='%23ffd200'/%3E%3C/svg%3E")}
+
+/* ---------- Os fundadores: Joãosinho e Ricardo ---------- */
+.amizade,.ultimos{background:var(--yellow)}
+.amizade-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(32px,5vw,90px);align-items:center}
+.amizade .h2,.ultimos .h2{margin-top:18px;max-width:16ch}
+.amizade .lede,.ultimos .lede{color:#3b3733}
+.amizade-text .lede + .lede{margin-top:16px}
+.amizade-text .btn{margin-top:30px}
+.amizade-foto img{width:100%;aspect-ratio:16/10;object-fit:cover;transform:rotate(-1.4deg);box-shadow:16px 16px 0 var(--magenta)}
+.ultimos .amizade-foto img{transform:rotate(1.4deg);box-shadow:-16px 16px 0 var(--purple)}
+.amizade-foto figcaption{margin-top:26px;color:#3b3733;font-size:11.5px}
+.laco{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.laco li{display:grid;align-content:start;gap:6px;padding:16px 18px 18px;background:#fff;border-top:5px solid var(--magenta);font:700 16px/1.35 var(--f-display);color:var(--ink)}
+.laco-k{color:var(--magenta);font-size:11.5px}
+.laco li:nth-child(2){border-top-color:var(--orange)}.laco li:nth-child(2) .laco-k{color:#b35f00}
+.laco li:nth-child(3){border-top-color:var(--purple)}.laco li:nth-child(3) .laco-k{color:var(--purple)}
+.laco li:nth-child(4){border-top-color:var(--green)}.laco li:nth-child(4) .laco-k{color:#2f7a17}
+.laco li:nth-child(5){border-top-color:var(--yellow)}.laco li:nth-child(5) .laco-k{color:var(--magenta)}
+.laco-5{grid-template-columns:repeat(5,minmax(0,1fr));margin-top:0}
+.origem .laco li{background:var(--canvas)}
+.encontro-side{display:grid;gap:26px}
+.encontro-foto img{width:100%;aspect-ratio:16/10;object-fit:cover;box-shadow:12px 12px 0 var(--yellow)}
+.encontro-foto figcaption{margin-top:18px;color:var(--ink-3);font-size:11.5px}
+
+/* ---------- Home: o resumo vira bloco de cor ---------- */
+.resumo{background:
+  radial-gradient(ellipse 50% 45% at 92% 6%,rgba(228,5,76,.5),rgba(228,5,76,0) 70%),
+  radial-gradient(ellipse 40% 35% at 4% 40%,rgba(240,135,0,.3),rgba(240,135,0,0) 70%),
+  linear-gradient(180deg,#551a50,#7a1f66)}
+.resumo .h2{color:#fff}
+.resumo .lede{color:#f3e6f1}
+.resumo .numeros .num{border-top:0}
+.resumo .numeros .num:nth-child(1){background:var(--magenta)}
+.resumo .numeros .num:nth-child(1) .stat-n,.resumo .numeros .num:nth-child(1) .stat-u{color:#fff}
+.resumo .numeros .num:nth-child(1) p{color:rgba(255,255,255,.92)}
+.resumo .numeros .num:nth-child(2){background:var(--orange)}
+.resumo .numeros .num:nth-child(3){background:var(--yellow)}
+.resumo .numeros .num:nth-child(4){background:var(--green)}
+.resumo .numeros .num:nth-child(n+2) .stat-n,.resumo .numeros .num:nth-child(n+2) .stat-u{color:var(--ink)}
+.resumo .numeros .num:nth-child(3) .stat-n{color:var(--purple)}
+.resumo .numeros .num:nth-child(n+2) p{color:rgba(29,29,27,.86)}
+.resumo .atalho{background:#fff;border-left-color:var(--magenta)}
+.resumo .atalho:nth-child(2){border-left-color:var(--orange)}
+.resumo .atalho:nth-child(3){border-left-color:var(--yellow)}
+.resumo .atalho:nth-child(4){border-left-color:var(--green)}
+.resumo .atalho:hover{background:#fff;border-left-color:var(--magenta)}
+
+/* os quatro pilares nas cores da casa */
+.pilares .pil:nth-child(2){background:var(--magenta)}
+.pilares .pil:nth-child(2) .pil-h{color:#fff}
+.pilares .pil:nth-child(3){background:var(--orange)}
+.pilares .pil:nth-child(4){background:var(--green)}
+.pilares .pil:nth-child(n+3) .pil-h{color:var(--ink)}
+.pilares .pil:nth-child(n+3) p{color:rgba(29,29,27,.86)}
+
+/* ---------- O artista: os títulos em roxo de escola de samba ---------- */
+.titulos{background:
+  radial-gradient(ellipse 55% 40% at 50% 0%,rgba(228,5,76,.42),rgba(228,5,76,0) 70%),
+  linear-gradient(180deg,#4a1545,var(--purple) 50%,#6e1d63)}
+.titulos .h-pele{color:var(--yellow)}
+.titulos .pele-sub{color:#f3e6f1}
+.titulos .ledger{border-top-color:var(--yellow)}
+.titulos .row{border-bottom-color:rgba(255,255,255,.18)}
+.titulos .yr{color:rgba(255,255,255,.26)}
+.titulos .yr::after{background-image:linear-gradient(180deg,var(--yellow),var(--orange) 60%,#ff4f7e)}
+.titulos .sch{color:var(--yellow)}
+.titulos .enr{color:#fff}
+.titulos .row:hover .enr{color:var(--yellow)}
+
+/* ---------- O Instituto: economia criativa em magenta ---------- */
+.criativa{background:
+  radial-gradient(ellipse 45% 40% at 96% 8%,rgba(240,135,0,.45),rgba(240,135,0,0) 70%),
+  linear-gradient(180deg,var(--magenta),#a8105a 50%,var(--purple))}
+.criativa .h2{color:#fff}
+.criativa .lede{color:#fdeef3}
+
+/* ---------- Quem faz: o cofundador em destaque ---------- */
+.cast .member-destaque{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(24px,4vw,64px);align-content:start;margin-bottom:26px;padding:clamp(24px,3vw,42px);border-top:0;color:#fff;background:
+  radial-gradient(ellipse 50% 60% at 100% 0%,rgba(228,5,76,.55),rgba(228,5,76,0) 70%),
+  linear-gradient(135deg,#4a1545,var(--purple) 55%,#8f1b5f)}
+.member-destaque .m-photo{grid-row:1/span 6;margin:0;border-top:6px solid var(--yellow)}
+.member-destaque > :not(.m-photo){grid-column:2}
+.member-destaque .m-role{color:var(--yellow)}
+.member-destaque h3{color:#fff;font-size:clamp(1.9rem,3.2vw,3rem)}
+.member-destaque .m-laco{margin-top:12px;font:700 clamp(1.1rem,1.7vw,1.5rem)/1.3 var(--f-display);color:var(--yellow);max-width:34ch}
+.member-destaque p:not(.m-role):not(.m-laco){margin-top:14px;color:#f3e6f1;font-size:16px;max-width:62ch}
+.m-link{justify-self:start;margin-top:18px;color:#fff;font-weight:700;text-decoration:none;border-bottom:2px solid var(--yellow);transition:color .3s var(--ease-out)}
+.m-link:hover{color:var(--yellow)}
+
+/* rodapé em roxo profundo */
+.foot{background:#2a0c27}
+
+@media (max-width:1024px){
+  .amizade-grid{grid-template-columns:1fr}
+  .ultimos .amizade-foto{order:-1}
+  .laco-5{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  .laco,.laco-5{grid-template-columns:1fr}
+  .cast .member-destaque{grid-template-columns:1fr}
+  .member-destaque .m-photo{grid-row:auto;max-width:340px;margin-bottom:18px}
+  .member-destaque > :not(.m-photo){grid-column:1}
+  .amizade-foto img,.ultimos .amizade-foto img{box-shadow:10px 10px 0 var(--magenta)}
+}
+
+/* ajustes finos */
+.act-kicker + .h2,.act-kicker + h2{margin-top:18px}
+.encontro-text .act-kicker{margin-top:0;color:#fff}
+.h-pele .mark{padding:.04em .14em .02em}
+.h-pele .mark > svg{left:-9%;top:-12%;width:118%;height:124%}
+.h-statement .mark{padding:0 .12em;margin-inline:-.04em}
+.h-statement .mark > svg{left:-8%;top:-10%;width:116%;height:122%}
