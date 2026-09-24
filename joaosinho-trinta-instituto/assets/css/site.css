@@ -103,7 +103,7 @@ main:focus{outline:none}
 .stage{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--canvas)}
 .stage-deco{position:absolute;inset:0}
 .archbox{position:absolute;left:40%;top:0;right:0;bottom:0;transform-origin:100% 100%;will-change:transform;clip-path:url(#archClip)}
-.photo{position:absolute;inset:0;background:#0a0908 url(../img/hero.jpg) 60% 26%/cover no-repeat;will-change:transform}
+.photo{position:absolute;inset:0;background:#0a0908 url(../img/hero-retrato.jpg) 40% 30%/cover no-repeat;will-change:transform}
 .archbox::after{content:"";position:absolute;inset:0;background:linear-gradient(92deg,rgba(29,29,27,.34),rgba(29,29,27,0) 34%)}
 .logo-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .logo-lines .ll-g{will-change:transform}
@@ -166,7 +166,7 @@ main:focus{outline:none}
   .static-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:34vh}
 }
 @media (max-width:720px), (orientation:portrait){
-  .photo{background-image:url(../img/hero-m.jpg);background-position:50% 40%}
+  .photo{background-image:url(../img/hero-retrato-m.jpg);background-position:50% 30%}
   .archbox{left:0;top:auto;height:min(54vh,500px);bottom:0;clip-path:url(#archClipM)}
   .static-copy{padding-bottom:calc(min(54vh,500px) + 30px)}
   .static-cta{padding-top:26px}
@@ -969,3 +969,44 @@ main:has(#junte-se) .act{content-visibility:visible}
 /* presépio inteiro, sem corte */
 .presepio{max-width:1000px}
 .presepio img{aspect-ratio:16/9;object-fit:cover;object-position:50% 30%}
+
+/* ================= ABERTURA QUE VENDE: objetivo explícito e atalho por público ================= */
+.b1{width:min(760px,50vw)}
+.b1 .logo-hero{width:clamp(170px,15vw,250px);margin-bottom:18px}
+.h-hero{font-size:clamp(2.1rem,3.7vw,4.3rem);line-height:1.02;text-transform:none;letter-spacing:-.025em}
+.h-sub{margin-top:16px;max-width:44ch;font-size:clamp(16px,1.2vw,19px);line-height:1.5;color:var(--ink-2)}
+.b1 .h-sub{display:block}
+.publico{margin-top:clamp(18px,2.4vh,28px)}
+.publico-h{color:var(--purple);margin-bottom:10px;font-weight:700}
+.publico-l{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;background:#fff;border:2px solid var(--magenta);color:var(--magenta);font:700 14.5px/1 var(--f-display);text-decoration:none;transition:background-color .3s var(--ease-out),color .3s var(--ease-out),transform .3s var(--ease-out)}
+.chip:hover,.chip:focus-visible{background:var(--magenta);color:#fff;transform:translateY(-1px)}
+.publico-l li:nth-child(2) .chip{border-color:var(--purple);color:var(--purple)}
+.publico-l li:nth-child(2) .chip:hover,.publico-l li:nth-child(2) .chip:focus-visible{background:var(--purple);color:#fff}
+.publico-l li:nth-child(3) .chip{border-color:#c46c00;color:#a35900}
+.publico-l li:nth-child(3) .chip:hover,.publico-l li:nth-child(3) .chip:focus-visible{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.publico-mais{display:inline-block;margin-top:14px;color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--yellow)}
+.publico-mais:hover{color:var(--magenta)}
+.b1 .publico{--kp:clamp(0,var(--k,0)*1.3 - .3,1);opacity:var(--kp);transform:translateY(calc((1 - var(--kp))*12px))}
+.h-hero-static{max-width:16ch}
+@media (max-width:720px){
+  .h-hero-static{font-size:clamp(2.2rem,9.4vw,3.4rem)}
+  .static-copy .publico-l{flex-direction:column;align-items:stretch}
+  .static-copy .chip{justify-content:center}
+}
+@media (max-height:760px) and (min-width:721px){
+  .b1 .logo-hero{display:none}
+}
+/* o texto da abertura ganha um fundo claro: as linhas do logo passam por trás sem atrapalhar a leitura */
+.b1{padding:18px 26px 22px;margin-left:-26px;background:rgba(251,249,246,.86);border-radius:14px;box-shadow:0 0 40px 20px rgba(251,249,246,.6)}
+.h-hero .mark{margin-left:.3em}
+.h-hero .mark > svg{left:-7%;width:114%}
+@media (max-height:940px) and (min-width:721px){ .b1 .logo-hero{display:none} }
+.cue{left:auto;right:var(--gutter)}
+/* palavra longa: o traço vira uma pílula desenhada à mão, que abraça as pontas sem cortar letras */
+.h-hero .mark{padding:.04em .22em .1em;margin-left:.2em}
+.h-hero .mark > svg{left:-3%;top:-6%;width:106%;height:114%}
+@media (max-width:720px){ .static-copy .logo-hero{display:none} }
+
+/* o rodapé assina com a frase do Instituto */
+.foot-quote{font-size:1.35rem;line-height:1.2;max-width:22ch}

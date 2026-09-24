@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Instituto Joãosinho Trinta · O povo gosta de luxo</title>
-<meta name="description" content="O Instituto Joãosinho Trinta preserva o legado do maior carnavalesco do Brasil e transforma memória e criatividade em projetos culturais: planejamento, editais, formação, patrimônio e economia criativa.">
+<title>Instituto Joãosinho Trinta · Projetos culturais que viram desenvolvimento</title>
+<meta name="description" content="Projetos culturais que viram desenvolvimento. O Instituto Joãosinho Trinta planeja, estrutura e executa projetos, editais e programas de economia criativa para prefeituras, empresas e produtores.">
 <meta name="theme-color" content="#fbf9f6">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230b0a09'/%3E%3Cpath d='M22 14h24M34 14v26c0 7-5 11-12 10' fill='none' stroke='%23d4af37' stroke-width='5' stroke-linecap='square'/%3E%3Ccircle cx='46' cy='48' r='4' fill='%23990000'/%3E%3C/svg%3E">
 <!-- DEPLOY STEP: troque og:url e og:image pela URL absoluta do site no ar -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Instituto Joãosinho Trinta · O povo gosta de luxo">
+<meta property="og:title" content="Instituto Joãosinho Trinta · Projetos culturais que viram desenvolvimento">
 <meta property="og:description" content="Cultura, memória, criatividade e desenvolvimento. Onde houver cultura, haverá desenvolvimento humano.">
 <meta property="og:url" content="https://www.exemplo.com.br/">
 <meta property="og:image" content="https://www.exemplo.com.br/assets/img/og.jpg">
@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Roboto+Slab:wght@400;500;700;800&display=swap">
 <link rel="preload" as="image" href="assets/img/logo-cor.png">
-<link rel="preload" as="image" href="assets/img/hero.jpg" media="(min-width: 721px) and (orientation: landscape)">
-<link rel="preload" as="image" href="assets/img/hero-m.jpg" media="(max-width: 720px), (orientation: portrait)">
+<link rel="preload" as="image" href="assets/img/hero-retrato.jpg" media="(min-width: 721px) and (orientation: landscape)">
+<link rel="preload" as="image" href="assets/img/hero-retrato-m.jpg" media="(max-width: 720px), (orientation: portrait)">
 <link rel="stylesheet" href="assets/css/site.css">
 <noscript><link rel="stylesheet" href="assets/css/sem-js.css"></noscript>
 <script>document.documentElement.classList.replace('no-js','js')</script>
@@ -64,12 +64,19 @@
 
     <div class="band b1" data-a="0" data-b="0.30">
       <img class="logo-hero" src="assets/img/logo-cor.png" alt="Instituto Joãosinho Trinta" width="941" height="523">
-      <p class="kicker mono">Joãosinho Trinta · 1933 a 2011</p>
-      <blockquote class="q-hero">
-        <h1 class="h-hero"><span class="hw">O povo gosta de</span> <span class="mark hw"><span class="grad">luxo.</span><svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M100 4 C 153 4, 196 25, 196 50 C 196 76, 153 96, 100 96 C 47 96, 4 76, 4 50 C 4 25, 44 6, 96 5 C 128 4, 156 9, 176 18"/></svg></span></h1>
-        <p class="h-quote hw">Quem gosta de miséria é intelectual.</p>
-      </blockquote>
-      <p class="hint mono">Role para abrir o arco</p>
+      <div class="q-hero">
+        <h1 class="h-hero"><span class="hw">Projetos culturais que viram</span> <span class="mark hw"><span class="grad">desenvolvimento.</span><svg viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M34 5 H 168 C 190 5, 197 28, 197 50 C 197 73, 190 95, 166 95 H 34 C 10 95, 3 73, 3 50 C 3 27, 11 6, 36 5 L 132 3"/></svg></span></h1>
+        <p class="h-sub hw">Planejamos, estruturamos e executamos projetos, editais e programas de economia criativa para prefeituras, empresas e produtores.</p>
+      </div>
+      <div class="publico">
+        <p class="publico-h mono">Como a gente pode ajudar você?</p>
+        <ul class="publico-l">
+          <li><a class="chip" href="#junte-se" data-perfil="Gestor público">Sou gestor público</a></li>
+          <li><a class="chip" href="#junte-se" data-perfil="Empresa ou patrocinador">Sou empresa ou patrocinador</a></li>
+          <li><a class="chip" href="#junte-se" data-perfil="Produtor ou artista">Sou produtor ou artista</a></li>
+        </ul>
+        <a class="publico-mais" href="atuacao.html">Veja o que o Instituto entrega →</a>
+      </div>
     </div>
 
     <div class="band b2" data-a="0.34" data-b="0.62">
@@ -81,22 +88,26 @@
       <p class="h-settle split" data-fx="rise" data-seed="5">Onde houver cultura, haverá desenvolvimento humano.</p>
       <p class="settle-sub">Desde 2008, a gente leva o ofício dele para quem faz cultura no Brasil.</p>
       <div class="settle-cta">
-        <a class="btn btn-red" href="#junte-se">Junte-se a nós</a>
-        <a class="btn btn-ghost" href="joaosinho.html">Conheça a história</a>
+        <a class="btn btn-red" href="#junte-se">Fale com a nossa equipe</a>
+        <a class="btn btn-ghost" href="atuacao.html">Veja o que entregamos</a>
       </div>
     </div>
 
     <div class="static-copy">
       <img class="logo-hero" src="assets/img/logo-cor.png" alt="Instituto Joãosinho Trinta" width="941" height="523">
-      <p class="kicker mono">Joãosinho Trinta · 1933 a 2011</p>
-      <blockquote class="q-hero">
-        <h1 class="h-hero h-hero-static">O povo gosta de luxo.</h1>
-        <p class="h-quote-static">Quem gosta de miséria é intelectual.</p>
-      </blockquote>
-      <div class="static-cta">
-        <a class="btn btn-red" href="#junte-se">Junte-se a nós</a>
-        <a class="btn btn-ghost" href="joaosinho.html">Conheça a história</a>
+      <div class="q-hero">
+        <h1 class="h-hero h-hero-static">Projetos culturais que viram <span class="grad">desenvolvimento.</span></h1>
+        <p class="h-sub">Planejamos, estruturamos e executamos projetos, editais e programas de economia criativa para prefeituras, empresas e produtores.</p>
       </div>
+      <div class="publico">
+      <p class="publico-h mono">Como a gente pode ajudar você?</p>
+      <ul class="publico-l">
+        <li><a class="chip" href="#junte-se" data-perfil="Gestor público">Sou gestor público</a></li>
+        <li><a class="chip" href="#junte-se" data-perfil="Empresa ou patrocinador">Sou empresa ou patrocinador</a></li>
+        <li><a class="chip" href="#junte-se" data-perfil="Produtor ou artista">Sou produtor ou artista</a></li>
+      </ul>
+      <a class="publico-mais" href="atuacao.html">Veja o que o Instituto entrega →</a>
+    </div>
     </div>
 
     <div class="cue" aria-hidden="true"><span class="mono">Role</span><i></i></div>
@@ -216,7 +227,7 @@
   <div class="wrap foot-grid">
     <div class="foot-brand">
       <span class="foot-plate"><img class="foot-logo" src="assets/img/logo-cor.png" alt="Instituto Joãosinho Trinta" width="941" height="523" loading="lazy" decoding="async"></span>
-      <p class="foot-quote">O povo gosta de luxo.</p>
+      <p class="foot-quote">Onde houver cultura, haverá desenvolvimento humano.</p>
       <p class="foot-small">Instituto Joãosinho Trinta<br>Presidente e cofundador: José Ricardo Marques<br>CNPJ 10.423.699/0001-56<br>Rua Acre 83, sala 1106, Centro<br>Rio de Janeiro, RJ, CEP 20.081-000</p>
     </div>
     <div class="foot-col">
@@ -232,7 +243,7 @@
     <div class="foot-col foot-credits">
       <p class="mono foot-h">Créditos das fotos</p>
       <ul>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Desfile_Beija_Flor_2016_(dsc5389).jpg" rel="noopener">Abertura e contato</a>: Tomaz Silva/Agência Brasil, <a href="https://creativecommons.org/licenses/by/3.0/br/" rel="noopener">CC BY 3.0 BR</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Desfile_Beija_Flor_2016_(dsc5389).jpg" rel="noopener">Contato</a>: Tomaz Silva/Agência Brasil, <a href="https://creativecommons.org/licenses/by/3.0/br/" rel="noopener">CC BY 3.0 BR</a></li>
         <li><a href="https://commons.wikimedia.org/wiki/File:%22Sonhar_com_rei_d%C3%A1_le%C3%A3o%22_1976.jpg" rel="noopener">1976</a>: Anibal Philot, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a></li>
         <li><a href="https://commons.wikimedia.org/wiki/File:Desfile_da_Beija-Flor_-_1978.jpg" rel="noopener">1978</a>: Luiz Pinto, <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener">CC BY-SA 2.0</a></li>
         <li><a href="https://commons.wikimedia.org/wiki/File:Luana_-_Beija-Flor_de_Nil%C3%B3polis_1983.jpg" rel="noopener">1983</a>: Ricardo Chaves, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener">CC BY 2.0</a></li>
