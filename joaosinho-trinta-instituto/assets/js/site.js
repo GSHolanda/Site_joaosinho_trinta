@@ -627,6 +627,10 @@
 
   /* ---------- 12. formulário: abre o e-mail do visitante ---------- */
   const form = $('#form');
+  // os atalhos da abertura já deixam o formulário com o perfil de quem clicou
+  $$('[data-perfil]').forEach(a => a.addEventListener('click', () => {
+    if (form && form.perfil) form.perfil.value = a.dataset.perfil;
+  }));
   const err = $('#form-err');
   const ok = $('#form-ok');
   if (form) form.addEventListener('submit', e => {
