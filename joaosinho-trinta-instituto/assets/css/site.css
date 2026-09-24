@@ -973,8 +973,6 @@ main:has(#junte-se) .act{content-visibility:visible}
 /* ================= ABERTURA QUE VENDE: objetivo explícito e atalho por público ================= */
 .b1{width:min(760px,50vw)}
 .b1 .logo-hero{width:clamp(170px,15vw,250px);margin-bottom:18px}
-.q-luxo{margin-bottom:18px;max-width:46ch;font:italic 500 clamp(15px,1.1vw,18px)/1.4 var(--f-display);color:var(--purple)}
-.q-luxo cite{display:block;margin-top:4px;font-style:normal;font-size:11.5px;color:var(--magenta)}
 .h-hero{font-size:clamp(2.1rem,3.7vw,4.3rem);line-height:1.02;text-transform:none;letter-spacing:-.025em}
 .h-sub{margin-top:16px;max-width:44ch;font-size:clamp(16px,1.2vw,19px);line-height:1.5;color:var(--ink-2)}
 .b1 .h-sub{display:block}
@@ -1009,3 +1007,6 @@ main:has(#junte-se) .act{content-visibility:visible}
 .h-hero .mark{padding:.04em .22em .1em;margin-left:.2em}
 .h-hero .mark > svg{left:-3%;top:-6%;width:106%;height:114%}
 @media (max-width:720px){ .static-copy .logo-hero{display:none} }
+
+/* o rodapé assina com a frase do Instituto */
+.foot-quote{font-size:1.35rem;line-height:1.2;max-width:22ch}
